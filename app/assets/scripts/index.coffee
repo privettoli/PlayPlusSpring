@@ -23,14 +23,16 @@ initPostsLoader = ->
 initSavePost = ->
   $("#save-post").click ->
     message = $("#message")
+    isCodeInput = $("#isCodeInput")
     $.ajax({
       type: 'POST',
       url: $('#save-post-url').val(),
       data: {
         message: message.val(),
-        isCode: $("#isCodeInput").prop("checked")
+        isCode: isCodeInput.prop("checked")
       }
     }).done(->
+      isCodeInput.prop("checked", false)
       message.val('')
       message.focus()
     ).fail(->
