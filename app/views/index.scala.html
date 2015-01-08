@@ -1,0 +1,36 @@
+@()
+
+@moreScripts = {
+    <script src='@routes.Assets.at("scripts/index.js")'
+    type="text/javascript" charset="utf-8"></script>
+}
+
+@main("Index page", moreScripts) {
+    <!-- Urls for WebSocket and Ajax requests
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <input type="hidden" id="last-ten-posts-url" value="/post/ten/0"/>
+    <input type="hidden" id="new-posts-ws-url" value="ws://localhost:9000/post/ws"/>
+    <input type="hidden" id="save-post-url" value="/post/save"/>
+
+    <!-- Page
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <h1 class="main_text">Welcome to DevBlog!</h1>
+    <ul id="posts"></ul>
+    <div>
+        <div class="row">
+            <label for="message">Message</label>
+        </div>
+        <div class="row">
+            <input id="message" type="text" class="u-full-width">
+        </div>
+        <div class="row">
+            <div class="six columns">
+                <input id="save-post" type="submit" value="Save" class="button-primary"/>
+            </div>
+            <div class="six columns">
+                <input id="isCodeInput" type="checkbox" name="isCode" class="inlineBlock"/>
+                <label for="isCodeInput" style="display : inline-block">This message is a code</label>
+            </div>
+        </div>
+    </div>
+}

@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    username: root
+    password: pass
+    driverClassName: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://localhost:3306/play_devblog
+
+  jpa.hibernate:
+    show-sql: true
+    ddl-auto: update
+    database: mariadb
+    dialect: org.hibernate.dialect.MySQLInnoDBDialect
+    naming_strategy: org.hibernate.cfg.ImprovedNamingStrategy
