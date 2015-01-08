@@ -8,9 +8,9 @@
 @main("Index page", moreScripts) {
     <!-- Urls for WebSocket and Ajax requests
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-    <input type="hidden" id="last-ten-posts-url" value="/post/ten/0"/>
-    <input type="hidden" id="new-posts-ws-url" value="ws://localhost:9000/post/ws"/>
-    <input type="hidden" id="save-post-url" value="/post/save"/>
+    <input type="hidden" id="last-ten-posts-url" value="@org.spend.devblog.controller.routes.IndexController.getTen(0)"/>
+    <input type="hidden" id="new-posts-ws-url" value="@org.spend.devblog.controller.routes.IndexController.newPostsWebSocket().webSocketURL(request)"/>
+    <input type="hidden" id="save-post-url" value="@org.spend.devblog.controller.routes.IndexController.newPost()"/>
 
     <!-- Page
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
