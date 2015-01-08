@@ -12,10 +12,13 @@ import play.libs.F.Promise;
 import play.mvc.Controller;
 import play.mvc.Result;
 import play.mvc.WebSocket;
-import org.spend.devblog.repository.AsyncPostRepository;
+import org.spend.devblog.service.PostService;
 import views.html.index;
 
+import java.util.Collections;
+
 import static akka.actor.ActorRef.noSender;
+import static java.util.Collections.reverse;
 import static java.util.UUID.randomUUID;
 import static play.data.Form.form;
 import static play.libs.Json.toJson;
@@ -23,7 +26,7 @@ import static play.libs.Json.toJson;
 @org.springframework.stereotype.Controller
 public class IndexController extends Controller {
     @Autowired
-    private AsyncPostRepository asyncPostRepository;
+    private PostService postService;
     @Autowired
     @Qualifier("postActor")
     private ActorRef postActorRef;
@@ -52,6 +55,6 @@ public class IndexController extends Controller {
     }
 
     public Promise<Result> getTen(Integer page) {
-        return asyncPostRepository.ten(page).map(list -> ok(toJson(list)));
+        return postService.ten(page).map(list -> ok(toJson(list)));
     }
 }

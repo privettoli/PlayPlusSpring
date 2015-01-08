@@ -16,7 +16,7 @@ newPostEvent = (post) ->
 
 initPostsLoader = ->
   $.get $("#last-ten-posts-url").val(), (data) ->
-    for post in data
+    for post in data.reverse()
       newPostEvent post
     null
 
