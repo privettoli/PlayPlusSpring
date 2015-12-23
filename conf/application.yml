@@ -4,10 +4,10 @@ spring:
     password: pass
     driverClassName: org.mariadb.jdbc.Driver
     url: jdbc:mariadb://localhost:3306/play_devblog
-
-  jpa.hibernate:
+  jpa:
+    database: mysql
     show-sql: true
-    ddl-auto: update
-    database: mariadb
-    dialect: org.hibernate.dialect.MySQLInnoDBDialect
-    naming_strategy: org.hibernate.cfg.ImprovedNamingStrategy
+    hibernate:
+      ddl-auto: create
+      naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+    properties.hibernate.dialectddialect: org.hibernate.dialect.MySQLInnoDBDialect

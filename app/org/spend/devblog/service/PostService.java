@@ -42,11 +42,6 @@ public class PostService {
     public void save(PostEntity post, Optional<Runnable> runnable) {
         databaseExecutionContext.execute(() -> {
             postRepository.save(post);
-            try {
-                Thread.sleep(1000L);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
             runnable.ifPresent(defaultExecutionContext::execute);
         });
     }
